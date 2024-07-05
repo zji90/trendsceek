@@ -76,7 +76,7 @@ pp_select <-  function(pp, sel.genes){
 pos2pp <- function(pos_mat){
     x.range = range(pos_mat[, 1])
     y.range = range(pos_mat[, 2])
-    pp = spatstat::ppp(x = pos_mat[, 1], y = pos_mat[, 2], x.range, y.range)
+    pp = ppp(x = pos_mat[, 1], y = pos_mat[, 2], x.range, y.range)
 
     return(pp)
 }
