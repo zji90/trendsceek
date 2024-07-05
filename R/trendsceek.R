@@ -330,7 +330,7 @@ gen_null <- function(pp, n.rand = 2000){
     ##List of pps with fixed positions but randomized labels
 
     perm = TRUE #keep the marginal mark dist the same
-    pp.perm.list = lapply(1:n.rand, function(j.it, pp, permute){spatstat::rlabel(pp, permute = permute)}, pp = pp, permute = perm)    
+    pp.perm.list = lapply(1:n.rand, function(j.it, pp, permute){rlabel(pp, permute = permute)}, pp = pp, permute = perm)    
     
     return(pp.perm.list)
 }
