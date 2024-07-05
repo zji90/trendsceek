@@ -339,7 +339,7 @@ calc_pp_trendstats <- function(pp, pp.perm.list, alpha_env = 0.05, alpha_nom_ear
 ###Calculate test statistic of obs and null
     
     ##available test stat methods
-    fcns = c(spatstat::Emark, spatstat::markcorr, spatstat::markvario, spatstat::Vmark)
+    fcns = c(Emark, markcorr, markvario, Vmark)
     names(fcns) = c('Emark', 'markcorr', 'markvario', 'Vmark')
 
     ##subset on selected methods
@@ -399,7 +399,7 @@ calc_pp_trendstats_jmethod <- function(pp, pp.perm.list, j.fcn, alpha_env = 0.05
         ##get local (per radius) test stats for subset
         ##This is the time-consuming step
         j_nsim = length(j_pp_perm_list)
-        j_localstats = spatstat::envelope(pp, j.fcn, nsim = j_nsim, simulate = j_pp_perm_list, global = FALSE, nsim2 = 0, savefuns = TRUE, verbose = FALSE)
+        j_localstats = envelope(pp, j.fcn, nsim = j_nsim, simulate = j_pp_perm_list, global = FALSE, nsim2 = 0, savefuns = TRUE, verbose = FALSE)
         
         ##add test-stats from previous subsets
         local.stats.list = add_subsetstats(local.stats.list, j_localstats, j_nsim_it)
